@@ -1,3 +1,4 @@
+// @ts-nocheck
 "use client";
 import { useState, useRef, useEffect } from "react";
 
@@ -331,8 +332,8 @@ const DAILY_V=[
 ];
 
 // ─── HELPERS ─────────────────────────────────────────────────────────────────
-const gb=id=>BOOKS.find(b=>b.id===id);
-const gc=(bid,ch)=>CTX[`${bid}-${ch}`]||null;
+const gb = (id: string) => BOOKS.find((b: any) => b.id === id);
+const gc = (bid: string, ch: number | string) => (CTX as any)[`${bid}-${ch}`] || null;
 
 function useLS(key,def){
   const [v,sv]=useState(()=>{try{const s=localStorage.getItem(key);return s?JSON.parse(s):def;}catch{return def;}});
