@@ -1,5 +1,5 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
 // ─── TOKENS ───────────────────────────────────────────────────────────────────
 const C = {
@@ -23,13 +23,15 @@ const C = {
 };
 
 // ─── PROYECTO BIBLIA — IDs EN ESPAÑOL ────────────────────────────────────────
-const PB_VIDEOS = {
+const PB_VIDEOS: Record<string, {id: string; title: string}> = {
   genesis1:   { id: "HQMKA6w5ZZM", title: "Resumen de Génesis (parte 1)" },
   genesis2:   { id: "MC8BqGu9B8A", title: "Resumen de Génesis (parte 2)" },
   exodo1:     { id: "qLoOqOTqDo4", title: "Resumen de Éxodo (parte 1)" },
   exodo2:     { id: "SQ2zVmtGBYY", title: "Resumen de Éxodo (parte 2)" },
+  numeros:    { id: "v9jnDfvMn9M", title: "Resumen de Números" },
   salmos:     { id: "j9phNEaPrv8", title: "Resumen de Salmos" },
   marcos:     { id: "gsXLQkppzUc", title: "Resumen de Marcos" },
+  lucas1:     { id: "XIb_dFIRx2c", title: "Resumen de Lucas (parte 1)" },
   juan1:      { id: "A_BYskCtAHQ", title: "Resumen de Juan (parte 1)" },
   juan2:      { id: "m4HCobFexTM", title: "Resumen de Juan (parte 2)" },
   mateo1:     { id: "3Dv4-n6OYGI", title: "Resumen de Mateo (parte 1)" },
@@ -41,6 +43,8 @@ const PB_VIDEOS = {
   reino:      { id: "xmFPS0f-kzs", title: "El Reino de Dios" },
   pacto:      { id: "zc6gXS7VGJE", title: "El Pacto" },
   imagen:     { id: "YbipxLDtY8c", title: "Imagen de Dios" },
+  templo:     { id: "S0R1XZhwmYc", title: "El Templo y la Presencia de Dios" },
+  sacrificio: { id: "G-2e9mMf7E4", title: "El Sacrificio y la Expiación" },
 };
 
 // ─── PORTADAS — Unsplash (libres, sin API key en modo source) ────────────────
@@ -60,7 +64,7 @@ const COVERS = [
 ];
 
 // ─── CONTEXTO CAPÍTULOS ───────────────────────────────────────────────────────
-const CTX = {
+const CTX: Record<string, any> = {
 "genesis-1":{ title:"En el principio", context:`En el mundo antiguo los relatos de creación describían dioses en conflicto. El Enuma Elish babilónico describe a Marduk matando al monstruo del caos y construyendo el mundo con su cuerpo. Los seres humanos son creados como esclavos de los dioses.
 
 Génesis 1 responde con una visión radicalmente diferente: un solo Dios, sin competencia, sin conflicto, crea libremente por la palabra. La estructura es poética y deliberada — seis días en dos columnas paralelas: los días 1-3 crean espacios, los días 4-6 los llenan. El ser humano aparece en el clímax.`, stake:"En Egipto solo el faraón era imagen del dios. Aquí toda la humanidad lo es. La dignidad humana no depende del rango ni del mérito — es una condición de origen.", keyVerse:"Génesis 1:27", keyText:"Y creó Dios al hombre a su imagen, a imagen de Dios lo creó; varón y hembra los creó.", highlights:["imagen de dios"], video: PB_VIDEOS.genesis1, genealogy:null },
@@ -134,7 +138,7 @@ Mateo incluye cinco mujeres — algo inusual en el mundo antiguo. Tamar, Rahab, 
 };
 
 // ─── GENEALOGÍAS ─────────────────────────────────────────────────────────────
-const GENEALOGIES = {
+const GENEALOGIES: Record<string, any> = {
 "adan-noe":{ title:"De Adán a Noé", ref:"Génesis 5",
   narrative:`Cada entrada sigue el mismo ritmo: vivió X años, engendró, vivió Y años más, y murió. Ese redoble — 'y murió... y murió...' — es deliberado. Es el eco de Génesis 3.
 
@@ -175,7 +179,7 @@ Cinco mujeres aparecen — algo inusual en el mundo antiguo. Tamar, Rahab, Rut, 
 };
 
 // ─── DICCIONARIO ─────────────────────────────────────────────────────────────
-const DICT = {
+const DICT: Record<string, any> = {
 "reino de dios":{term:"Reino de Dios",type:"Concepto central",short:"El gobierno activo de Dios irrumpiendo en la historia.",body:`No es principalmente un lugar — es el reinado activo de Dios que trastorna el orden existente. Jesús proclamó que ese reino había llegado en su persona y sus actos.
 
 Israel esperaba un rey que los liberara de Roma. Jesús resignificó ese lenguaje: el reino no llega con ejércitos sino con sanidades, con el perdón de pecados, con la inclusión de los excluidos.
@@ -332,13 +336,13 @@ const DAILY_V=[
 const gb=id=>BOOKS.find(b=>b.id===id);
 const gc=(bid,ch)=>CTX[`${bid}-${ch}`]||null;
 
-function useLS(key,def){
-  const [v,sv]=useState(()=>{try{const s=localStorage.getItem(key);return s?JSON.parse(s):def;}catch{return def;}});
-  const set=val=>{sv(val);try{localStorage.setItem(key,JSON.stringify(val));}catch{}};
+function useLS<T>(key: string, def: T): [T, (v: T) => void] {
+  const [v,sv]=useState<T>(()=>{try{const s=localStorage.getItem(key);return s?JSON.parse(s) as T:def;}catch{return def;}});
+  const set=(val: T)=>{sv(val);try{localStorage.setItem(key,JSON.stringify(val));}catch{}};
   return[v,set];
 }
 
-function tok(text,hl){
+function tok(text: string, hl: string[]) {
   if(!hl?.length)return[{text,h:false}];
   const lo=text.toLowerCase(),hits=[];
   hl.forEach(w=>{let i=0;while((i=lo.indexOf(w.toLowerCase(),i))!==-1){hits.push({s:i,e:i+w.length,w});i+=w.length;}});
@@ -351,9 +355,9 @@ function tok(text,hl){
 }
 
 // ─── ATOMS ───────────────────────────────────────────────────────────────────
-const Chip=({children,color=C.amber})=><span style={{fontSize:10,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase",color,background:color+"18",padding:"3px 9px",borderRadius:4}}>{children}</span>;
+const Chip=({children,color=C.amber}:{children:React.ReactNode;color?:string})=><span style={{fontSize:10,fontWeight:700,letterSpacing:".1em",textTransform:"uppercase" as const,color,background:color+"18",padding:"3px 9px",borderRadius:4}}>{children}</span>;
 
-function VideoCard({v}){
+function VideoCard({v}: {v: any}) {
   if(!v)return null;
   return(
     <a href={`https://www.youtube.com/watch?v=${v.id}`}target="_blank"rel="noopener noreferrer"
@@ -373,7 +377,7 @@ function VideoCard({v}){
   );
 }
 
-function DictModal({entry,onClose}){
+function DictModal({entry, onClose}: {entry: any; onClose: () => void}) {
   if(!entry)return null;
   return(
     <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.5)",zIndex:300,display:"flex",alignItems:"flex-end"}}onClick={onClose}>
@@ -394,7 +398,7 @@ function DictModal({entry,onClose}){
   );
 }
 
-function GenealogyBlock({id}){
+function GenealogyBlock({id}: {id: string}) {
   const g=GENEALOGIES[id];if(!g)return null;
   return(
     <div style={{background:C.amberBg,border:`1px solid ${C.amber}30`,borderRadius:12,padding:16}}>
@@ -418,7 +422,7 @@ function GenealogyBlock({id}){
 }
 
 // ─── COVER PICKER ────────────────────────────────────────────────────────────
-function CoverPicker({current,onSelect,onClose}){
+function CoverPicker({current, onSelect, onClose}: {current: any; onSelect: (c: any) => void; onClose: () => void}) {
   return(
     <div style={{position:"fixed",inset:0,background:"rgba(0,0,0,.6)",zIndex:400,display:"flex",alignItems:"flex-end"}}onClick={onClose}>
       <div onClick={e=>e.stopPropagation()}style={{background:C.surface,borderRadius:"20px 20px 0 0",width:"100%",maxWidth:430,margin:"0 auto",maxHeight:"80vh",overflowY:"auto",boxShadow:"0 -8px 32px rgba(0,0,0,.15)",animation:"slideUp .22s ease"}}>
@@ -447,7 +451,7 @@ function CoverPicker({current,onSelect,onClose}){
 }
 
 // ─── READER ──────────────────────────────────────────────────────────────────
-function Reader({bookId,chapter,onWord,onBack}){
+function Reader({bookId, chapter, onWord, onBack}: {bookId: string; chapter: number; onWord: (e: any) => void; onBack: (a: string) => void}) {
   const book=gb(bookId);const ctx=gc(bookId,chapter);
   const [verses,setVerses]=useState([]);const[loading,setLoading]=useState(true);const[error,setError]=useState(null);
   const[ctxOpen,setCtxOpen]=useState(false);
@@ -513,7 +517,7 @@ function Reader({bookId,chapter,onWord,onBack}){
 }
 
 // ─── BOOK PICKER ─────────────────────────────────────────────────────────────
-function BookPicker({onSelect}){
+function BookPicker({onSelect}: {onSelect: (b: string, c: number) => void}) {
   const[testament,setTestament]=useState("NT");const[sel,setSel]=useState(null);
   const books=BOOKS.filter(b=>b.testament===testament);
   const sections=[...new Set(books.map(b=>b.section))];
@@ -522,7 +526,7 @@ function BookPicker({onSelect}){
 }
 
 // ─── TODAY ────────────────────────────────────────────────────────────────────
-function TodayTab({progress,onMark,onRead,cover,onChangeCover}){
+function TodayTab({progress, onMark, onRead, cover, onChangeCover}: {progress: {day: number}; onMark: () => void; onRead: (b: string, c: number) => void; cover: any; onChangeCover: () => void}) {
   const step=GUIDED[Math.min(progress.day,GUIDED.length-1)];
   const pct=Math.round((progress.day/GUIDED.length)*100);
   const dv=DAILY_V[Math.floor(Date.now()/86400000)%DAILY_V.length];
@@ -564,7 +568,7 @@ function TodayTab({progress,onMark,onRead,cover,onChangeCover}){
 }
 
 // ─── EXPLORE ─────────────────────────────────────────────────────────────────
-function ExploreTab({onWord}){
+function ExploreTab({onWord}: {onWord: (e: any) => void}) {
   const[view,setView]=useState("dict");const[q,setQ]=useState("");const[gId,setGId]=useState(null);
   const entries=Object.values(DICT).filter(e=>!q||e.term.toLowerCase().includes(q.toLowerCase())||e.short.toLowerCase().includes(q.toLowerCase()));
   const GLIST=[{id:"adan-noe",ref:"Génesis 5",title:"De Adán a Noé",sub:"10 generaciones. El redoble de la muerte y dos excepciones."},{id:"abraham-jesus",ref:"Mateo 1:1-17",title:"De Abraham a Jesús",sub:"42 generaciones. La historia de Israel en una lista."}];
@@ -587,7 +591,7 @@ export default function Page(){
   const topRef=useRef(null);
 
   const openReader=(bookId,chapter)=>{setReading({bookId,chapter});if(topRef.current)topRef.current.scrollTo(0,0);};
-  const handleBack=(action)=>{
+  const handleBack = (action: string) => {
     if(action==="next")setReading(r=>({...r,chapter:r.chapter+1}));
     else if(action==="prev")setReading(r=>({...r,chapter:r.chapter-1}));
     else setReading(null);
