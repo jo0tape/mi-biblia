@@ -38,7 +38,7 @@ export function Onboarding({ onFinish }: Props) {
             </button>
           </div>
 
-          <div style={{ flex: 1, padding: "28px 24px 0", overflowY: "auto" }}>
+          <div style={{ flex: 1, padding: "28px 24px 0", overflowY: "auto", minHeight: 0 }}>
             <p style={{ fontSize: 15, color: C.dim, lineHeight: 1.7, marginBottom: 28 }}>
               La Biblia es fascinante pero difícil de entender sola. Esta app te da el contexto histórico, el diccionario y la guía que necesitas para no abandonar en el primer capítulo.
             </p>
@@ -73,7 +73,7 @@ export function Onboarding({ onFinish }: Props) {
             <p style={{ fontSize: 14, color: C.dim, lineHeight: 1.6 }}>Elige un punto de partida. Puedes cambiarlo después desde la sección "Yo".</p>
           </div>
 
-          <div style={{ flex: 1, padding: "0 20px", overflowY: "auto" }}>
+          <div style={{ flex: 1, padding: "0 20px", overflowY: "auto", minHeight: 0 }}>
             {THEMES.map(t => (
               <button key={t.id} onClick={() => setThemeId(t.id)}
                 style={{ width: "100%", background: themeId === t.id ? C.amberBg : C.surface, border: `2px solid ${themeId === t.id ? C.amber : C.border}`, borderRadius: 14, padding: "16px", cursor: "pointer", textAlign: "left", marginBottom: 12, transition: "all .15s" }}>
