@@ -17,7 +17,7 @@ export function VideoCard({ v }: { v: VideoRef | null | undefined }) {
       <div style={{ padding: "10px 14px", flex: 1 }}>
         <p style={{ fontSize: 10, color: "#C05621", fontWeight: 700, letterSpacing: ".08em", textTransform: "uppercase", marginBottom: 4 }}>Proyecto Biblia · YouTube</p>
         <p style={{ fontSize: 13, color: C.text, fontWeight: 600, lineHeight: 1.4 }}>{v.title}</p>
-        <p style={{ fontSize: 11, color: C.dim, marginTop: 4 }}>Gratis · En español</p>
+        <p style={{ fontSize: 11, color: C.dim, marginTop: 4 }}>Gratis · Español</p>
       </div>
     </a>
   );

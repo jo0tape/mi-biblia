@@ -1116,6 +1116,76 @@ Lo que sigue es más oscuro: Dios puso eternidad en el corazón del ser humano, 
   video:null,
   genealogy:null,
 },
+"jonas-1":{
+  title:"La huida del profeta",
+  context:`Jonás recibe un encargo directo: ir a Nínive, la capital del Imperio Asirio, el enemigo más brutal de Israel. Nínive está al noreste, a unos 900 kilómetros. Jonás aborda un barco rumbo a Tarsis — posiblemente España, la dirección opuesta, el lugar más lejano del mundo conocido.
+
+No es miedo al fracaso. Es miedo al éxito. Jonás sabe exactamente lo que pasaría si predica: Nínive podría arrepentirse y Dios los perdonaría. Y él no lo quiere.
+
+Una tormenta violenta sacude el barco. Los marineros — cada uno orando a su propio dios — echan suertes. La suerte cae sobre Jonás. Él mismo pide que lo arrojen al mar. Los marineros, que no quieren hacerlo, lo hacen. El mar se calma.`,
+  stake:"Los marineros paganos hacen exactamente lo que el profeta debería hacer: reconocen la mano de Dios, oran, temen. Jonás duerme en la bodega mientras ellos claman. El libro comienza con la inversión más incómoda: los de afuera a veces responden mejor que los de adentro.",
+  keyVerse:"Jonás 1:3",
+  keyText:"Mas Jonás se levantó para huir de la presencia de Jehová a Tarsis.",
+  highlights:["profeta","arrepentíos"],
+  video:PB_VIDEOS["jonas"],
+  genealogy:null,
+},
+"daniel-1":{
+  title:"La primera decisión",
+  context:`Es el 605 a.C. Nabucodonosor conquista Jerusalén por primera vez. Entre los deportados hay jóvenes brillantes, sin defecto físico, aptos para servir en la corte babilónica. El proceso de asimilación empieza por los nombres: Daniel se convierte en Beltasar, Hananías en Sadrac, Misael en Mesac, Azarías en Abed-nego. Nombres hebreos que honraban a Dios, reemplazados por nombres babilónicos que honran a otros dioses.
+
+El siguiente paso: la comida del rey. Para Daniel, aceptarla significaría comprometer las leyes dietéticas de Israel. Propone un test de diez días: vegetales y agua versus la comida real.
+
+Al final de los diez días, Daniel y sus amigos se ven mejor que los que comieron la comida del rey.`,
+  stake:"La resistencia de Daniel no empieza ante un horno de fuego ni un foso de leones. Empieza ante el menú de la corte. El libro de Daniel enseña que las grandes pruebas se ganan en las pequeñas: quien no cede en lo cotidiano tampoco cede cuando la apuesta es la vida.",
+  keyVerse:"Daniel 1:8",
+  keyText:"Y Daniel propuso en su corazón no contaminarse con la porción de la comida del rey.",
+  highlights:["profeta","fe","ley"],
+  video:PB_VIDEOS["daniel"],
+  genealogy:null,
+},
+"daniel-6":{
+  title:"El foso de los leones",
+  context:`Daniel tiene posiblemente 80 años. Ha servido con distinción bajo tres imperios. Sus enemigos lo revisan exhaustivamente en busca de alguna falta — y no encuentran ninguna. Entonces diseñan una trampa basada en su única 'debilidad': su fidelidad a Dios.
+
+Convencen al rey Darío de firmar un decreto que prohíbe hacer petición a cualquier dios o persona excepto al rey, por treinta días. Daniel lo sabe y continúa orando tres veces al día, con la ventana abierta hacia Jerusalén.
+
+El rey —que aprecia profundamente a Daniel— no tiene salida legal. Signa la orden. Y luego pasa toda la noche sin comer, sin dormir, sin música. Al amanecer corre al foso.`,
+  stake:"La pregunta del rey al amanecer — '¿te ha podido librar de los leones tu Dios?' — revela que Darío ya sabe la respuesta que espera. Un rey del Imperio persa aprendió a conocer al Dios de Israel a través de la fidelidad silenciosa de un anciano funcionario judío.",
+  keyVerse:"Daniel 6:22",
+  keyText:"Mi Dios envió su ángel, el cual cerró la boca de los leones, para que no me hiciesen daño.",
+  highlights:["fe","profeta","redencion"],
+  video:PB_VIDEOS["daniel"],
+  genealogy:null,
+},
+"ester-4":{
+  title:"Para esta hora",
+  context:`El decreto está sellado. Haman ha convencido al rey Asuero de firmar una orden de exterminio contra todos los judíos del Imperio Persa — sin mencionar quiénes son. La fecha se fija mediante sorteo (pur): el día 13 del mes 12. Falta casi un año.
+
+Ester lleva cinco años como reina sin que el rey sepa que es judía. Mardoqueo le envía el mensaje: habla con el rey. El problema: nadie puede presentarse ante el rey sin ser convocado. La pena es la muerte, a menos que el rey extienda su cetro dorado. Y el rey no ha llamado a Ester en treinta días.
+
+El libro de Ester no menciona el nombre de Dios en ninguno de sus diez capítulos. Pero Mardoqueo dice algo que es la declaración de providencia más sutil de la Biblia: 'Si callas en este tiempo, alivio y liberación vendrán de otro lugar. ¿Y quién sabe si para esta hora has llegado al reino?'`,
+  stake:"La frase de Mardoqueo no promete éxito. Promete que la historia de Dios seguirá adelante con o sin Ester — y sugiere que quizás ella esté exactamente donde debe estar para ser parte de ella. Ester decide actuar: 'Si perezco, que perezca.'",
+  keyVerse:"Ester 4:14",
+  keyText:"¿Y quién sabe si para esta hora has llegado al reino?",
+  highlights:["redencion","fe"],
+  video:PB_VIDEOS["ester"],
+  genealogy:null,
+},
+"ester-7":{
+  title:"El banquete del desenmascaramiento",
+  context:`Es el segundo banquete que Ester organiza para el rey y Haman. El rey pregunta por segunda vez qué pide Ester. Esta vez responde: su vida y la vida de su pueblo. Ha llegado el momento.
+
+'¿Quién es, y dónde está, el que ha ensoberbecido su corazón para hacer esto?' El rey no sabe de quién habla — firmó el decreto sin preguntar quiénes eran los condenados. Ester señala: 'El adversario y enemigo es este malvado Haman.'
+
+El rey furioso sale al jardín. Haman cae sobre el diván donde está Ester para suplicar. El rey regresa y malinterpreta la escena. Un sirviente señala la horca que Haman mandó construir para Mardoqueo — 23 metros de altura. 'Colgadle en ella.'`,
+  stake:"Haman construyó una horca de 23 metros para Mardoqueo. Murió en ella. La inversión es el patrón literario del libro completo: el primero será el último, el que planea la destrucción de otros termina destruido. En Ester, la justicia llega lentamente, de formas inesperadas, a través de personas inesperadas.",
+  keyVerse:"Ester 7:6",
+  keyText:"El adversario y enemigo es este malvado Haman.",
+  highlights:["redencion"],
+  video:PB_VIDEOS["ester"],
+  genealogy:null,
+},
 };
 
 export function getCtx(bookId: string, chapter: number): ChapterCtx | null {

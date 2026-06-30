@@ -82,7 +82,7 @@ export function TodayTab({ progress, onMark, onThemeChange, onRead, cover, onCha
         </div>
         <button onClick={onChangeCover}
           style={{ position: "absolute", top: 12, right: 12, background: "rgba(255,255,255,.2)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,.3)", borderRadius: 20, padding: "5px 12px", fontSize: 11, color: "#fff", fontWeight: 700, cursor: "pointer" }}>
-          🖼 Portada
+          Portada
         </button>
       </div>
 
