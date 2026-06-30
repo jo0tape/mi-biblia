@@ -13,7 +13,7 @@ export function GenealogyBlock({ genealogy: g, onRead }: Props) {
       <p style={{ fontSize: 10, color: C.amber, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".1em", marginBottom: 10 }}>
         Árbol narrativo · {g.ref}
       </p>
-      <p style={{ fontSize: 13, color: "#7B4A1A", lineHeight: 1.85, whiteSpace: "pre-line", marginBottom: 16 }}>{g.narrative}</p>
+      <p style={{ fontSize: 13, color: C.dim, lineHeight: 1.85, whiteSpace: "pre-line", marginBottom: 16 }}>{g.narrative}</p>
       {g.nodes.map((node, i) => {
         const isLast = i === g.nodes.length - 1;
         const isDots = node.m === "dots";

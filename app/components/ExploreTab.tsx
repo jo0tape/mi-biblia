@@ -95,7 +95,7 @@ export function ExploreTab({ onWord, onRead }: Props) {
       {view === "gen" && (
         <>
           <div style={{ background: C.amberBg, border: `1px solid ${C.amberB}`, borderRadius: 12, padding: "12px 14px", marginBottom: 14 }}>
-            <p style={{ fontSize: 13, color: "#7B4A1A", lineHeight: 1.7 }}>Las genealogías bíblicas no son listas de nombres. Son argumentos teológicos — cada una dice algo que no podría decirse de otra manera. Toca "Leer" en cada persona para ir directamente a ese capítulo.</p>
+            <p style={{ fontSize: 13, color: C.dim, lineHeight: 1.7 }}>Las genealogías bíblicas no son listas de nombres. Son argumentos teológicos — cada una dice algo que no podría decirse de otra manera. Toca "Leer" en cada persona para ir directamente a ese capítulo.</p>
           </div>
           {GLIST.map(g => (
             <button key={g.id} onClick={() => setGId(g.id)}

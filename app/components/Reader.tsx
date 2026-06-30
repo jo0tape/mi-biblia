@@ -102,7 +102,7 @@ export function Reader({ bookId, chapter, onBack, onWord, onRead, progress, onMa
       )}
       {ctxOpen && ctx && (
         <div style={{ background: C.amberBg, border: `1px solid ${C.amberB}`, borderRadius: 12, padding: 16, marginBottom: 16 }}>
-          <p style={{ fontSize: 14, color: "#7B4A1A", lineHeight: 1.9, whiteSpace: "pre-line" }}>{ctx.context}</p>
+          <p style={{ fontSize: 14, color: C.dim, lineHeight: 1.9, whiteSpace: "pre-line" }}>{ctx.context}</p>
         </div>
       )}
 
@@ -131,9 +131,9 @@ export function Reader({ bookId, chapter, onBack, onWord, onRead, progress, onMa
 
       {/* Error */}
       {!loading && error && (
-        <div style={{ background: "#FEF2F2", border: `1px solid ${C.redA}`, borderRadius: 12, padding: 16, marginBottom: 16 }}>
+        <div style={{ background: C.redA, border: `1px solid ${C.redA}`, borderRadius: 12, padding: 16, marginBottom: 16 }}>
           <p style={{ fontSize: 13, color: C.red, marginBottom: 4, fontWeight: 600 }}>No se pudo cargar el texto</p>
-          <p style={{ fontSize: 12, color: "#991B1B" }}>Verifica tu conexión a internet. La app intenta cargar RVR1960 en línea; si no hay red, usa la versión local incluida.</p>
+          <p style={{ fontSize: 12, color: C.red }}>Verifica tu conexión a internet. La app intenta cargar RVR1960 en línea; si no hay red, usa la versión local incluida.</p>
         </div>
       )}
 

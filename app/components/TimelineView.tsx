@@ -15,7 +15,7 @@ export function TimelineView({ onRead }: { onRead: (book: string, chapter: numbe
   return (
     <div>
       <div style={{ background: C.amberBg, border: `1px solid ${C.amberB}`, borderRadius: 12, padding: "12px 14px", marginBottom: 20 }}>
-        <p style={{ fontSize: 13, color: "#7B4A1A", lineHeight: 1.7 }}>
+        <p style={{ fontSize: 13, color: C.dim, lineHeight: 1.7 }}>
           Las fechas del Antiguo Testamento son aproximadas — los historiadores debaten muchas de ellas. Esta línea de tiempo muestra el orden de los eventos y su relación, no fechas exactas.
         </p>
       </div>

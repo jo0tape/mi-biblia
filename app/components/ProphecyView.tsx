@@ -28,7 +28,7 @@ export function ProphecyView({ onRead }: { onRead: (book: string, chapter: numbe
   return (
     <div>
       <div style={{ background: C.amberBg, border: `1px solid ${C.amberB}`, borderRadius: 12, padding: "12px 14px", marginBottom: 16 }}>
-        <p style={{ fontSize: 13, color: "#7B4A1A", lineHeight: 1.7 }}>
+        <p style={{ fontSize: 13, color: C.dim, lineHeight: 1.7 }}>
           Cada profecía en la columna izquierda fue escrita siglos antes de su cumplimiento. Toca un par para ver los dos textos en paralelo.
         </p>
       </div>
@@ -64,7 +64,7 @@ export function ProphecyView({ onRead }: { onRead: (book: string, chapter: numbe
                           <button onClick={() => onRead(pair.at.book, pair.at.chapter)} style={{ fontSize: 11, color: C.blue, background: "none", border: "none", cursor: "pointer", fontWeight: 700 }}>Leer →</button>
                         </div>
                         <p style={{ fontSize: 14, color: C.text, lineHeight: 1.7, fontStyle: "italic", marginBottom: 6 }}>"{result?.atText ?? pair.at.note}"</p>
-                        <p style={{ fontSize: 12, color: "#7B4A1A", lineHeight: 1.6 }}>{pair.at.note}</p>
+                        <p style={{ fontSize: 12, color: C.dim, lineHeight: 1.6 }}>{pair.at.note}</p>
                       </div>
                       <div style={{ borderTop: `1px solid ${C.amberB}`, paddingTop: 14 }}>
                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 6 }}>
