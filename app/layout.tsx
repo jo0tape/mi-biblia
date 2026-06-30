@@ -26,8 +26,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="es">
-      <body>{children}</body>
+    <html lang="es" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{__html:`try{if(JSON.parse(localStorage.getItem('bs_theme')))document.documentElement.dataset.theme='dark';}catch(e){}`}} />
+      </head>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   )
 }

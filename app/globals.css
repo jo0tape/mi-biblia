@@ -4,16 +4,88 @@
   padding: 0;
 }
 
+:root {
+  --color-bg:       #FAFAF8;
+  --color-surface:  #FFFFFF;
+  --color-card:     #F5F3EF;
+  --color-border:   #E8E4DC;
+  --color-border-d: #D4CFC4;
+  --color-amber:    #8B5E2A;
+  --color-amber-l:  #C4873E;
+  --color-amber-bg: #FDF6ED;
+  --color-amber-a:  rgba(139, 94, 42, 0.094);
+  --color-amber-b:  rgba(139, 94, 42, 0.188);
+  --color-amber-c:  rgba(139, 94, 42, 0.376);
+  --color-text:     #1C1814;
+  --color-dim:      #6B6358;
+  --color-faint:    #B8B0A4;
+  --color-fainter:  #E0DBD3;
+  --color-green:    #3D6B4A;
+  --color-green-bg: #EDF5F0;
+  --color-blue:     #2E5F8A;
+  --color-blue-bg:  #EDF3FA;
+  --color-blue-a:   rgba(46, 95, 138, 0.125);
+  --color-red:      #8B2A2A;
+  --color-red-a:    rgba(139, 42, 42, 0.125);
+  --nav-bg:         rgba(250, 250, 248, 0.97);
+}
+
+[data-theme="dark"] {
+  --color-bg:       #1A1714;
+  --color-surface:  #252220;
+  --color-card:     #2E2A26;
+  --color-border:   #3A3530;
+  --color-border-d: #4A4540;
+  --color-amber:    #C4873E;
+  --color-amber-l:  #E0A055;
+  --color-amber-bg: #2A1F0F;
+  --color-amber-a:  rgba(196, 135, 62, 0.094);
+  --color-amber-b:  rgba(196, 135, 62, 0.188);
+  --color-amber-c:  rgba(196, 135, 62, 0.376);
+  --color-text:     #E8E4DC;
+  --color-dim:      #A8A09A;
+  --color-faint:    #5A5550;
+  --color-fainter:  #332F2C;
+  --color-green:    #5A9B6A;
+  --color-green-bg: #1A2E1E;
+  --color-blue:     #4A8FBA;
+  --color-blue-bg:  #1A2535;
+  --color-blue-a:   rgba(74, 143, 186, 0.125);
+  --color-red:      #C05050;
+  --color-red-a:    rgba(192, 80, 80, 0.125);
+  --nav-bg:         rgba(26, 23, 20, 0.97);
+}
+
 html, body {
   height: 100%;
-  background: #FAFAF8;
+  background: var(--color-bg);
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-::-webkit-scrollbar { width: 0; }
+::-webkit-scrollbar { width: 0; height: 0; }
+
+input::placeholder { color: var(--color-faint); }
+
+button, a, input { font-family: inherit; }
 
 @keyframes spin {
   to { transform: rotate(360deg); }
+}
+@keyframes slideUp {
+  from { transform: translateY(100%); }
+  to   { transform: translateY(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes breatheIn {
+  from { transform: scale(0.8); opacity: 0.4; }
+  to   { transform: scale(1.2); opacity: 1; }
+}
+@keyframes breatheOut {
+  from { transform: scale(1.2); opacity: 1; }
+  to   { transform: scale(0.8); opacity: 0.4; }
 }

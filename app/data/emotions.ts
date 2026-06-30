@@ -1,0 +1,88 @@
+import type { Emotion } from "../lib/types";
+
+export const EMOTIONS: Emotion[] = [
+  { id:"ansioso",    emoji:"😰", label:"Ansioso",
+    refs:[
+      {book:"filipenses",  chapter:4, verse:6},
+      {book:"mateo",       chapter:6, verse:25},
+      {book:"salmos",      chapter:46, verse:10},
+      {book:"1pedro",      chapter:5, verse:7},
+    ]},
+  { id:"triste",     emoji:"😢", label:"Triste",
+    refs:[
+      {book:"salmos",      chapter:34, verse:18},
+      {book:"romanos",     chapter:8, verse:28},
+      {book:"juan",        chapter:14, verse:1},
+      {book:"mateo",       chapter:5, verse:4},
+    ]},
+  { id:"solo",       emoji:"😔", label:"Solo",
+    refs:[
+      {book:"salmos",      chapter:23, verse:4},
+      {book:"mateo",       chapter:28, verse:20},
+      {book:"hebreos",     chapter:13, verse:5},
+      {book:"juan",        chapter:14, verse:18},
+    ]},
+  { id:"con-miedo",  emoji:"😨", label:"Con miedo",
+    refs:[
+      {book:"isaias",      chapter:41, verse:10},
+      {book:"josue",       chapter:1, verse:9},
+      {book:"salmos",      chapter:27, verse:1},
+      {book:"2timoteo",    chapter:1, verse:7},
+    ]},
+  { id:"cansado",    emoji:"😓", label:"Cansado",
+    refs:[
+      {book:"mateo",       chapter:11, verse:28},
+      {book:"isaias",      chapter:40, verse:31},
+      {book:"salmos",      chapter:23, verse:2},
+      {book:"marcos",      chapter:6, verse:31},
+    ]},
+  { id:"enojado",    emoji:"😡", label:"Enojado",
+    refs:[
+      {book:"efesios",     chapter:4, verse:26},
+      {book:"santiago",    chapter:1, verse:19},
+      {book:"salmos",      chapter:37, verse:8},
+      {book:"proverbios",  chapter:15, verse:1},
+    ]},
+  { id:"perdido",    emoji:"🤔", label:"Sin dirección",
+    refs:[
+      {book:"proverbios",  chapter:3, verse:5},
+      {book:"salmos",      chapter:25, verse:4},
+      {book:"juan",        chapter:14, verse:6},
+      {book:"isaias",      chapter:30, verse:21},
+    ]},
+  { id:"culpable",   emoji:"😞", label:"Culpable",
+    refs:[
+      {book:"1juan",       chapter:1, verse:9},
+      {book:"romanos",     chapter:8, verse:1},
+      {book:"salmos",      chapter:51, verse:10},
+      {book:"isaias",      chapter:1, verse:18},
+    ]},
+  { id:"agradecido", emoji:"🙏", label:"Agradecido",
+    refs:[
+      {book:"salmos",      chapter:100, verse:4},
+      {book:"1tesalonicenses", chapter:5, verse:18},
+      {book:"filipenses",  chapter:4, verse:4},
+      {book:"colosenses",  chapter:3, verse:15},
+    ]},
+  { id:"necesito-fuerza", emoji:"💪", label:"Necesito fuerza",
+    refs:[
+      {book:"filipenses",  chapter:4, verse:13},
+      {book:"isaias",      chapter:40, verse:29},
+      {book:"salmos",      chapter:46, verse:1},
+      {book:"efesios",     chapter:6, verse:10},
+    ]},
+  { id:"sin-esperanza", emoji:"❓", label:"Sin esperanza",
+    refs:[
+      {book:"jeremias",    chapter:29, verse:11},
+      {book:"romanos",     chapter:15, verse:13},
+      {book:"salmos",      chapter:31, verse:24},
+      {book:"lamentaciones", chapter:3, verse:22},
+    ]},
+  { id:"esperanzado", emoji:"😍", label:"Esperanzado",
+    refs:[
+      {book:"salmos",      chapter:37, verse:4},
+      {book:"hebreos",     chapter:11, verse:1},
+      {book:"romanos",     chapter:8, verse:28},
+      {book:"filipenses",  chapter:1, verse:6},
+    ]},
+];
