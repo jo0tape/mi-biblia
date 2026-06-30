@@ -67,9 +67,13 @@ export function Onboarding({ onFinish }: Props) {
         {/* Step 1 — Elige tu ruta */}
         {step === 1 && (
           <div style={{ minHeight: "100%", display: "flex", flexDirection: "column" }}>
-            <div style={{ padding: "52px 24px 20px" }}>
+            <div style={{ position: "relative", padding: "52px 24px 20px" }}>
+              <button onClick={() => onFinish(themeId)}
+                style={{ position: "absolute", top: 14, right: 14, background: C.card, border: `1px solid ${C.border}`, borderRadius: 20, padding: "7px 14px", fontSize: 12, color: C.dim, fontWeight: 700, cursor: "pointer" }}>
+                Saltar
+              </button>
               <p style={{ fontSize: 11, color: C.amber, fontWeight: 700, letterSpacing: ".16em", textTransform: "uppercase", marginBottom: 6 }}>Paso 1 de 1</p>
-              <h2 style={{ fontSize: 24, fontWeight: 900, color: C.text, marginBottom: 8 }}>¿Por dónde empiezas?</h2>
+              <h2 style={{ fontSize: 24, fontWeight: 900, color: C.text, marginBottom: 8, paddingRight: 70 }}>¿Por dónde empiezas?</h2>
               <p style={{ fontSize: 14, color: C.dim, lineHeight: 1.6 }}>Elige un punto de partida. Puedes cambiarlo después desde la sección "Yo".</p>
             </div>
 
