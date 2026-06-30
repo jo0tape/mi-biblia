@@ -1,24 +1,23 @@
 import type { VideoRef } from "../lib/types";
 
 export const PB_VIDEOS: Record<string, VideoRef | null> = {
-  genesis1:   { id: "HQMKA6w5ZZM", title: "Resumen de Génesis (parte 1)" },
-  genesis2:   { id: "MC8BqGu9B8A", title: "Resumen de Génesis (parte 2)" },
-  exodo1:     { id: "qLoOqOTqDo4", title: "Resumen de Éxodo (parte 1)" },
-  exodo2:     { id: "SQ2zVmtGBYY", title: "Resumen de Éxodo (parte 2)" },
-  salmos:     { id: "j9phNEaPrv8", title: "Resumen de Salmos" },
-  marcos:     { id: "gsXLQkppzUc", title: "Resumen de Marcos" },
-  juan1:      { id: "A_BYskCtAHQ", title: "Resumen de Juan (parte 1)" },
-  juan2:      { id: "m4HCobFexTM", title: "Resumen de Juan (parte 2)" },
-  mateo1:     { id: "3Dv4-n6OYGI", title: "Resumen de Mateo (parte 1)" },
-  romanos1:   { id: "UoIFpkFoKC0", title: "Resumen de Romanos (parte 1)" },
-  romanos2:   { id: "Ob8SZF5_FmI", title: "Resumen de Romanos (parte 2)" },
-  hechos1:    { id: "oNNZO2i9QAo", title: "Resumen de Hechos (parte 1)" },
-  genesis_at: { id: "VL8YhTkuiv0", title: "Resumen del Antiguo Testamento" },
-  que_es:     { id: "GQI72THyO5I", title: "¿Qué es la Biblia?" },
-  reino:      { id: "xmFPS0f-kzs", title: "El Reino de Dios" },
-  pacto:      { id: "zc6gXS7VGJE", title: "El Pacto" },
-  imagen:     { id: "YbipxLDtY8c", title: "Imagen de Dios" },
-  // Pendientes de verificar ID en canal español de Proyecto Biblia:
+  genesis1:   { id: "HQMKA6w5ZZM", title: "Resumen de Génesis (parte 1)" },       // ✓ Proyecto Biblia
+  genesis2:   { id: "MC8BqGu9B8A", title: "Resumen de Génesis (parte 2)" },       // ✓ Proyecto Biblia
+  exodo1:     { id: "y9pED55wMM4", title: "Resumen de Éxodo (parte 1)" },         // ✓ Proyecto Biblia
+  exodo2:     { id: "U2lUpubEMDI", title: "Resumen de Éxodo (parte 2)" },         // ✓ Proyecto Biblia
+  salmos:     { id: "8yieTfiw_Ew", title: "Resumen de Salmos" },                  // ✓ Proyecto Biblia
+  marcos:     { id: "gsXLQkppzUc", title: "Resumen de Marcos" },                  // ✓ Proyecto Biblia
+  juan1:      { id: "OU16-2Sg_CQ", title: "Resumen de Juan (parte 1)" },          // ✓ Proyecto Biblia
+  juan2:      { id: "NUW1Frg8DA0", title: "Resumen de Juan (parte 2)" },          // ✓ Proyecto Biblia
+  mateo1:     { id: "3jUPGTb80ms", title: "Resumen de Mateo (parte 1)" },         // ✓ Proyecto Biblia
+  romanos1:   { id: "0tco1rQGC1o", title: "Resumen de Romanos (parte 1)" },       // ✓ Proyecto Biblia
+  romanos2:   { id: "ZqScL0dHLsM", title: "Resumen de Romanos (parte 2)" },       // ✓ Proyecto Biblia
+  hechos1:    { id: "5h7Q0EK-m8I", title: "Resumen de Hechos (parte 1)" },        // ✓ Proyecto Biblia
+  genesis_at: { id: "VL8YhTkuiv0", title: "Resumen del Antiguo Testamento" },     // ✓ Proyecto Biblia
+  que_es:     { id: "uMOc-YI0iaM", title: "¿Qué es la Biblia?" },                 // ✓ Proyecto Biblia
+  imagen:     { id: "VsGlbwF4HtI", title: "Imagen de Dios" },                     // ✓ Proyecto Biblia
+  reino:      null, // "Evangelio del Reino" en proyectobiblia.com (no YouTube)
+  pacto:      null, // "Los Pactos" en proyectobiblia.com (no YouTube)
   numeros:    null,
   lucas1:     null,
 };
