@@ -33,7 +33,7 @@ export function Onboarding({ onFinish }: Props) {
                 <h1 style={{ fontSize: 28, fontWeight: 900, color: "#fff", lineHeight: 1.2 }}>Lee la Biblia{"\n"}sin perderte.</h1>
               </div>
               <button onClick={() => onFinish("guided-40")}
-                style={{ position: "absolute", top: 14, right: 14, background: "rgba(255,255,255,.2)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,.3)", borderRadius: 20, padding: "6px 14px", fontSize: 12, color: "#fff", fontWeight: 700, cursor: "pointer" }}>
+                style={{ position: "absolute", top: 14, right: 14, background: "#fff", border: "none", borderRadius: 20, padding: "7px 14px", fontSize: 12, color: C.text, fontWeight: 700, cursor: "pointer", boxShadow: "0 2px 8px rgba(0,0,0,.25)" }}>
                 Solo quiero leer
               </button>
             </div>
