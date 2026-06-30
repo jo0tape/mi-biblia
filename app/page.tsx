@@ -16,8 +16,9 @@ import { ExploreTab } from "./components/ExploreTab";
 import { SearchTab } from "./components/SearchTab";
 import { ProfileTab } from "./components/ProfileTab";
 import { Onboarding } from "./components/Onboarding";
+import { WorshipTab } from "./components/WorshipTab";
 
-type Tab = "today" | "read" | "search" | "explore" | "profile";
+type Tab = "today" | "read" | "search" | "explore" | "worship" | "profile";
 type Reading = { bookId: string; chapter: number } | null;
 
 export default function Page() {
@@ -76,14 +77,16 @@ export default function Page() {
     : tab === "read"    ? "Leer"
     : tab === "search"  ? "Buscar"
     : tab === "explore" ? "Explorar"
+    : tab === "worship" ? "Adoración"
     : "Yo";
 
   const TABS: { id: Tab; icon: string; label: string }[] = [
-    { id: "today",   icon: "◉", label: "Hoy"     },
-    { id: "read",    icon: "☰", label: "Leer"    },
-    { id: "search",  icon: "🔍", label: "Buscar"  },
-    { id: "explore", icon: "◈", label: "Explorar"},
-    { id: "profile", icon: "♡", label: "Yo"      },
+    { id: "today",   icon: "◉", label: "Hoy"      },
+    { id: "read",    icon: "☰", label: "Leer"     },
+    { id: "search",  icon: "🔍", label: "Buscar"   },
+    { id: "explore", icon: "◈", label: "Explorar" },
+    { id: "worship", icon: "♪", label: "Música"   },
+    { id: "profile", icon: "♡", label: "Yo"       },
   ];
 
   // Splash mientras localStorage carga (evita flash del onboarding para usuarios ya registrados)
@@ -132,6 +135,8 @@ export default function Page() {
           ? <SearchTab onRead={openReader} onWord={setDictEntry} />
           : tab === "explore"
           ? <ExploreTab onWord={setDictEntry} onRead={openReader} />
+          : tab === "worship"
+          ? <WorshipTab />
           : <ProfileTab onRead={openReader} progress={progress} onThemeChange={changeTheme} />
         }
       </div>
@@ -141,12 +146,12 @@ export default function Page() {
       {showCoverPicker && <CoverPicker current={cover} onSelect={setCover} onClose={() => setShowCoverPicker(false)} />}
 
       {/* Bottom nav */}
-      <div style={{ position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "100%", maxWidth: 430, background: C.navBg, borderTop: `1px solid ${C.border}`, display: "flex", zIndex: 100, backdropFilter: "blur(20px)" }}>
+      <div style={{ position: "fixed", bottom: 0, left: "50%", transform: "translateX(-50%)", width: "100%", maxWidth: 430, background: C.navBg, borderTop: `1px solid ${C.border}`, display: "flex", overflowX: "auto", WebkitOverflowScrolling: "touch" as any, scrollbarWidth: "none" as any, zIndex: 100, backdropFilter: "blur(20px)" }}>
         {TABS.map(t => {
           const active = !reading && tab === t.id;
           return (
             <button key={t.id} onClick={() => { setReading(null); setTab(t.id); }}
-              style={{ flex: 1, background: "none", border: "none", padding: "10px 2px 16px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
+              style={{ flexShrink: 0, minWidth: 70, background: "none", border: "none", padding: "10px 4px 16px", cursor: "pointer", display: "flex", flexDirection: "column", alignItems: "center", gap: 3 }}>
               <span style={{ fontSize: 17, color: active ? C.amber : C.faint }}>{t.icon}</span>
               <span style={{ fontSize: 9, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".06em", color: active ? C.amber : C.faint }}>{t.label}</span>
               {active && <div style={{ width: 14, height: 2, background: C.amber, borderRadius: 1 }} />}

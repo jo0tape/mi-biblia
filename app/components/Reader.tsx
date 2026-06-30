@@ -13,6 +13,8 @@ import { useNotes } from "../hooks/useNotes";
 import type { Verse, DictEntry } from "../lib/types";
 import { Chip } from "./Chip";
 import { VideoCard } from "./VideoCard";
+import { SongCard } from "./WorshipTab";
+import { getSongsForChapter } from "../data/worship";
 import { GenealogyBlock } from "./GenealogyBlock";
 import { VerseActions } from "./VerseActions";
 import { MeditationMode } from "./MeditationMode";
@@ -182,6 +184,16 @@ export function Reader({ bookId, chapter, onBack, onWord, onRead, progress, onMa
             <p style={{ fontSize: 14, color: C.dim, lineHeight: 1.8, whiteSpace: "pre-line" }}>{ctx.stake}</p>
           </div>
           {ctx.video && <VideoCard v={ctx.video} />}
+          {(() => {
+            const songs = getSongsForChapter(bookId, chapter);
+            if (!songs.length) return null;
+            return (
+              <div style={{ marginTop: 16 }}>
+                <p style={{ fontSize: 10, color: C.faint, fontWeight: 700, textTransform: "uppercase", letterSpacing: ".1em", marginBottom: 8 }}>Canción para este capítulo</p>
+                <SongCard song={songs[0]} />
+              </div>
+            );
+          })()}
         </>
       )}
 
