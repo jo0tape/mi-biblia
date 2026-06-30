@@ -44,6 +44,13 @@ export const SONGS: Song[] = [
     chapters: ["juan-1", "marcos-16", "mateo-1"],
   },
   {
+    id: "053BvHDfIdI",
+    title: "Libre Soy",
+    artist: "Barak · Alex Campos",
+    moods: ["gratitud", "renovacion"],
+    chapters: ["efesios-2", "juan-3", "romanos-8"],
+  },
+  {
     id: "w4Hm493D5L4",
     title: "Acepta",
     artist: "Barak",
@@ -56,6 +63,66 @@ export const SONGS: Song[] = [
     artist: "Barak",
     moods: ["lamento", "renovacion"],
     chapters: ["salmos-51", "lucas-15", "juan-3"],
+  },
+
+  // ─── UN CORAZÓN ───────────────────────────────────────────────────────────────
+  {
+    id: "MjMcj453CYQ",
+    title: "Salmo 23",
+    artist: "Un Corazón · Marco Barrientos",
+    moods: ["paz", "fe"],
+    chapters: ["salmos-23", "salmos-27", "juan-10"],
+  },
+  {
+    id: "6q-eds5bbLo",
+    title: "El Nombre",
+    artist: "Un Corazón · Averly Morillo",
+    moods: ["adoracion", "fe"],
+    chapters: ["juan-1", "marcos-16", "filipenses-4"],
+  },
+  {
+    id: "9khH4zemXL4",
+    title: "1000 Pedazos",
+    artist: "Un Corazón",
+    moods: ["lamento", "renovacion"],
+    chapters: ["lucas-15", "salmos-34", "efesios-2"],
+  },
+  {
+    id: "zUTHgUQthaA",
+    title: "Otra Vez",
+    artist: "Un Corazón",
+    moods: ["fe", "renovacion"],
+    chapters: ["romanos-8", "juan-11", "isaias-40"],
+  },
+
+  // ─── AVERLY MORILLO ──────────────────────────────────────────────────────────
+  {
+    id: "Fal-ROykq-4",
+    title: "Ante Tu Altar",
+    artist: "Averly Morillo",
+    moods: ["adoracion", "paz"],
+    chapters: ["salmos-1", "salmos-27", "hebreos-11"],
+  },
+  {
+    id: "S3Cn0aaV2sY",
+    title: "¿Quién Podrá?",
+    artist: "Averly Morillo",
+    moods: ["fe", "lamento"],
+    chapters: ["romanos-8", "salmos-22", "juan-11"],
+  },
+  {
+    id: "6RZwH5xjn7w",
+    title: "Estoy Convencido",
+    artist: "Averly Morillo",
+    moods: ["fe", "gratitud"],
+    chapters: ["romanos-8", "hebreos-11", "filipenses-4"],
+  },
+  {
+    id: "7b9z-YcDUrc",
+    title: "Mesías",
+    artist: "Averly Morillo",
+    moods: ["adoracion", "fe"],
+    chapters: ["mateo-1", "lucas-1", "isaias-53"],
   },
 
   // ─── LAILA OLIVEIRA ───────────────────────────────────────────────────────────
@@ -74,22 +141,6 @@ export const SONGS: Song[] = [
     chapters: ["ester-4", "ester-7", "lucas-1"],
   },
 
-  // ─── AVERLY MORILLO ──────────────────────────────────────────────────────────
-  {
-    id: "Fal-ROykq-4",
-    title: "Ante Tu Altar",
-    artist: "Averly Morillo",
-    moods: ["adoracion", "paz"],
-    chapters: ["salmos-1", "salmos-27", "hebreos-11"],
-  },
-  {
-    id: "S3Cn0aaV2sY",
-    title: "¿Quién Podrá?",
-    artist: "Averly Morillo",
-    moods: ["fe", "lamento"],
-    chapters: ["romanos-8", "salmos-22", "juan-11"],
-  },
-
   // ─── TOMA TU LUGAR / MARCOS BRUNET ───────────────────────────────────────────
   {
     id: "THTUEqjJS24",
@@ -106,7 +157,30 @@ export const SONGS: Song[] = [
     chapters: ["hechos-1", "hechos-2", "juan-14"],
   },
 
+  // ─── GENERACIÓN 12 ───────────────────────────────────────────────────────────
+  {
+    id: "Pn-PqlB_K4M",
+    title: "Quiero Conocer a Jesús",
+    artist: "Generación 12 · Sofía Mancipe",
+    moods: ["adoracion", "fe"],
+    chapters: ["juan-14", "juan-3", "marcos-8"],
+  },
+  {
+    id: "IA0T5w6nSH4",
+    title: "Como En El Cielo",
+    artist: "Generación 12 · Marcos Brunet",
+    moods: ["adoracion", "renovacion"],
+    chapters: ["mateo-5", "hechos-2", "lucas-1"],
+  },
+
   // ─── SARAI RIVERA ────────────────────────────────────────────────────────────
+  {
+    id: "9YHtP1K3bMc",
+    title: "Él Siempre Reina",
+    artist: "Sarai Rivera",
+    moods: ["adoracion", "fe"],
+    chapters: ["salmos-1", "marcos-8", "romanos-8"],
+  },
   {
     id: "HpKbr4SfLoM",
     title: "Cada Mañana",
@@ -123,7 +197,7 @@ export const SONGS: Song[] = [
   },
   {
     id: "XAcIm0BtKhs",
-    title: "Jesús",
+    title: "Jesús (Live)",
     artist: "Sarai Rivera · Un Corazón",
     moods: ["adoracion", "fe"],
     chapters: ["juan-1", "marcos-16", "hechos-2"],
@@ -157,6 +231,22 @@ export const SONGS: Song[] = [
     artist: "Alex Márquez",
     moods: ["gratitud", "paz"],
     chapters: ["mateo-5", "lucas-15", "juan-3"],
+  },
+
+  // ─── OASIS MINISTRY ──────────────────────────────────────────────────────────
+  {
+    id: "Qem0WSJXLCE",
+    title: "Yahweh Se Manifestará",
+    artist: "Oasis Ministry",
+    moods: ["fe", "adoracion"],
+    chapters: ["exodo-3", "numeros-13", "isaias-40"],
+  },
+  {
+    id: "j2jA71Vorjk",
+    title: "Si Tu Presencia Conmigo No Va",
+    artist: "Oasis Ministry",
+    moods: ["adoracion", "paz"],
+    chapters: ["exodo-20", "marcos-14", "juan-14"],
   },
 
   // ─── CHRISTINE D'CLARIO ───────────────────────────────────────────────────────
@@ -219,6 +309,33 @@ export const SONGS: Song[] = [
     chapters: ["salmos-100", "lucas-15", "hebreos-11"],
   },
 
+  // ─── MARCO BARRIENTOS ────────────────────────────────────────────────────────
+  {
+    id: "zkQQPY-vwDw",
+    title: "Ven Espíritu Ven",
+    artist: "Marco Barrientos",
+    moods: ["adoracion", "renovacion"],
+    chapters: ["hechos-1", "hechos-2", "juan-15"],
+  },
+
+  // ─── MAJO Y DAN ──────────────────────────────────────────────────────────────
+  {
+    id: "VPKKh9Aikbo",
+    title: "Tú Proveerás",
+    artist: "Majo y Dan · Christine D'Clario",
+    moods: ["fe", "paz"],
+    chapters: ["genesis-22", "exodo-3", "mateo-11"],
+  },
+
+  // ─── ALINE BARROS ────────────────────────────────────────────────────────────
+  {
+    id: "HRSf5w0CYJs",
+    title: "Jehová Jireh",
+    artist: "Aline Barros",
+    moods: ["fe", "gratitud"],
+    chapters: ["genesis-22", "exodo-3", "romanos-8"],
+  },
+
   // ─── HILLSONG ────────────────────────────────────────────────────────────────
   {
     id: "2BJ0OA0nXPY",
@@ -243,6 +360,13 @@ export const SONGS: Song[] = [
   },
 
   // ─── ELEVATION WORSHIP ───────────────────────────────────────────────────────
+  {
+    id: "es34Nr2JovU",
+    title: "Lo Harás Otra Vez",
+    artist: "Elevation Worship · Español",
+    moods: ["fe", "lamento"],
+    chapters: ["hechos-1", "salmos-22", "juan-11"],
+  },
   {
     id: "M2d58mf3Pzg",
     title: "Alaba",
@@ -284,13 +408,6 @@ export const SONGS: Song[] = [
   },
 
   // ─── OTROS ───────────────────────────────────────────────────────────────────
-  {
-    id: "zUTHgUQthaA",
-    title: "Otra Vez",
-    artist: "Un Corazón",
-    moods: ["fe", "renovacion"],
-    chapters: ["romanos-8", "juan-11", "isaias-40"],
-  },
   {
     id: "AujdgmwCriU",
     title: "La Bondad de Dios",

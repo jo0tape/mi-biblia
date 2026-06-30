@@ -29,9 +29,20 @@ export function SongCard({ song }: { song: Song }) {
   );
 }
 
+const PAGE_SIZE = 10;
+
 export function WorshipTab() {
   const [mood, setMood] = useState<SongMood | null>(null);
+  const [visible, setVisible] = useState(PAGE_SIZE);
+
   const filtered = mood ? SONGS.filter(s => s.moods.includes(mood)) : SONGS;
+  const shown = filtered.slice(0, visible);
+  const hasMore = visible < filtered.length;
+
+  const handleMoodChange = (m: SongMood | null) => {
+    setMood(m);
+    setVisible(PAGE_SIZE);
+  };
 
   return (
     <div>
@@ -41,14 +52,14 @@ export function WorshipTab() {
 
       {/* Mood chips */}
       <div style={{ display: "flex", gap: 8, overflowX: "auto", WebkitOverflowScrolling: "touch" as any, scrollbarWidth: "none" as any, paddingBottom: 4, marginBottom: 20 }}>
-        <button onClick={() => setMood(null)}
+        <button onClick={() => handleMoodChange(null)}
           style={{ flexShrink: 0, background: mood === null ? C.amber : C.card, color: mood === null ? "#fff" : C.dim, border: `1px solid ${mood === null ? C.amber : C.border}`, borderRadius: 20, padding: "7px 16px", fontSize: 12, fontWeight: 700, cursor: "pointer", whiteSpace: "nowrap" }}>
           Todas
         </button>
         {(Object.entries(MOOD_LABELS) as [SongMood, string][]).map(([id, label]) => (
-          <button key={id} onClick={() => setMood(mood === id ? null : id)}
+          <button key={id} onClick={() => handleMoodChange(mood === id ? null : id as SongMood)}
             style={{ flexShrink: 0, background: mood === id ? C.amber : C.card, color: mood === id ? "#fff" : C.dim, border: `1px solid ${mood === id ? C.amber : C.border}`, borderRadius: 20, padding: "7px 16px", fontSize: 12, fontWeight: 700, cursor: "pointer", whiteSpace: "nowrap" }}>
-            {MOOD_EMOJI[id]} {label}
+            {MOOD_EMOJI[id as SongMood]} {label}
           </button>
         ))}
       </div>
@@ -57,12 +68,19 @@ export function WorshipTab() {
       <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
         {filtered.length === 0
           ? <p style={{ fontSize: 14, color: C.faint, textAlign: "center", padding: "30px 0" }}>No hay canciones para ese filtro todavía.</p>
-          : filtered.map(s => <SongCard key={s.id} song={s} />)
+          : shown.map(s => <SongCard key={s.id} song={s} />)
         }
       </div>
 
+      {hasMore && (
+        <button onClick={() => setVisible(v => v + PAGE_SIZE)}
+          style={{ width: "100%", background: C.card, border: `1px solid ${C.border}`, borderRadius: 12, padding: "14px", fontSize: 13, fontWeight: 700, color: C.dim, cursor: "pointer", marginTop: 16 }}>
+          Cargar más ({filtered.length - visible} restantes)
+        </button>
+      )}
+
       <p style={{ fontSize: 11, color: C.fainter, textAlign: "center", marginTop: 24, lineHeight: 1.6 }}>
-        Las canciones abren en YouTube · Gratis
+        {filtered.length} canciones · Se abren en YouTube · Gratis
       </p>
     </div>
   );
