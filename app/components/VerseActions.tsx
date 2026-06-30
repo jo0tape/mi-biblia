@@ -3,7 +3,7 @@ import { useState } from "react";
 import { C } from "../lib/tokens";
 import { useBookmarks } from "../hooks/useBookmarks";
 import { useNotes } from "../hooks/useNotes";
-import { shareVerse } from "../lib/share";
+import { ShareModal } from "./ShareModal";
 
 type Props = {
   book: string; chapter: number; verse: number;
@@ -16,18 +16,10 @@ export function VerseActions({ book, chapter, verse, text, verseRef, onMeditate 
   const { get, save, hasNote } = useNotes();
   const [showNote, setShowNote] = useState(false);
   const [noteText, setNoteText] = useState(get(book, chapter, verse));
-  const [copied, setCopied] = useState(false);
+  const [showShare, setShowShare] = useState(false);
 
   const isBookmarked = has(book, chapter, verse);
   const noteExists = hasNote(book, chapter, verse);
-
-  const handleShare = async () => {
-    try {
-      await shareVerse(text, verseRef);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    } catch {}
-  };
 
   const handleBookmark = () => {
     if (isBookmarked) remove(`${book}-${chapter}-${verse}`);
@@ -41,10 +33,11 @@ export function VerseActions({ book, chapter, verse, text, verseRef, onMeditate 
 
   return (
     <div style={{ marginTop: 8, marginBottom: 8 }}>
+      {showShare && <ShareModal text={text} verseRef={verseRef} onClose={() => setShowShare(false)} />}
       <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-        <button onClick={handleShare}
+        <button onClick={() => setShowShare(true)}
           style={{ display: "flex", alignItems: "center", gap: 4, background: C.card, border: `1px solid ${C.border}`, borderRadius: 8, padding: "6px 10px", fontSize: 12, color: C.dim, cursor: "pointer", fontWeight: 600 }}>
-          {copied ? "✓ Copiado" : "📤 Compartir"}
+          📤 Compartir
         </button>
         <button onClick={handleBookmark}
           style={{ display: "flex", alignItems: "center", gap: 4, background: isBookmarked ? C.amberBg : C.card, border: `1px solid ${isBookmarked ? C.amber : C.border}`, borderRadius: 8, padding: "6px 10px", fontSize: 12, color: isBookmarked ? C.amber : C.dim, cursor: "pointer", fontWeight: 600 }}>
