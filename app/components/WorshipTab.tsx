@@ -51,7 +51,7 @@ export function WorshipTab() {
       </p>
 
       {/* Mood chips */}
-      <div style={{ display: "flex", gap: 8, overflowX: "auto", WebkitOverflowScrolling: "touch" as any, scrollbarWidth: "none" as any, paddingBottom: 4, marginBottom: 20 }}>
+      <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 20 }}>
         <button onClick={() => handleMoodChange(null)}
           style={{ flexShrink: 0, background: mood === null ? C.amber : C.card, color: mood === null ? "#fff" : C.dim, border: `1px solid ${mood === null ? C.amber : C.border}`, borderRadius: 20, padding: "7px 16px", fontSize: 12, fontWeight: 700, cursor: "pointer", whiteSpace: "nowrap" }}>
           Todas
