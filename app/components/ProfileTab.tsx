@@ -7,6 +7,7 @@ import { useNotes } from "../hooks/useNotes";
 import { useTheme } from "../hooks/useTheme";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { useStreak } from "../hooks/useStreak";
+import { useAuth } from "../hooks/useAuth";
 import { THEMES } from "../data/guided";
 import type { Progress } from "../lib/types";
 
@@ -23,6 +24,7 @@ export function ProfileTab({ onRead, progress, onThemeChange }: Props) {
   const { bookmarks, remove } = useBookmarks();
   const { allNotes, save } = useNotes();
   const { isDark, toggle: toggleTheme } = useTheme();
+  const { user, loading: authLoading, signInWithGoogle, signOut } = useAuth();
   const [fontSize, setFontSize] = useLocalStorage<number>("bs_fontsize", 17);
   const { count: streakCount } = useStreak();
 
@@ -111,6 +113,38 @@ export function ProfileTab({ onRead, progress, onThemeChange }: Props) {
       {/* Settings */}
       {section === "settings" && (
         <div>
+
+          {/* Google account */}
+          <div style={{ background: C.surface, border: `1px solid ${C.border}`, borderRadius: 12, padding: "14px 16px", marginBottom: 16 }}>
+            {authLoading ? (
+              <p style={{ fontSize: 13, color: C.faint }}>Cargando…</p>
+            ) : user ? (
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                {user.user_metadata?.avatar_url && (
+                  <img src={user.user_metadata.avatar_url} alt="" style={{ width: 40, height: 40, borderRadius: "50%", objectFit: "cover", flexShrink: 0 }} />
+                )}
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p style={{ fontSize: 14, fontWeight: 700, color: C.text, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{user.user_metadata?.full_name ?? user.email}</p>
+                  <p style={{ fontSize: 11, color: C.dim }}>Datos sincronizados en la nube ✓</p>
+                </div>
+                <button onClick={() => signOut()} style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 8, padding: "6px 12px", fontSize: 12, color: C.dim, cursor: "pointer", fontWeight: 700, flexShrink: 0 }}>
+                  Salir
+                </button>
+              </div>
+            ) : (
+              <div>
+                <p style={{ fontSize: 14, fontWeight: 700, color: C.text, marginBottom: 4 }}>Guardar en la nube</p>
+                <p style={{ fontSize: 12, color: C.dim, lineHeight: 1.5, marginBottom: 12 }}>
+                  Inicia sesión para que tus marcadores, notas y progreso se guarden aunque cambies de dispositivo.
+                </p>
+                <button onClick={() => signInWithGoogle()} style={{ width: "100%", background: C.text, color: C.bg, border: "none", borderRadius: 10, padding: "12px 16px", fontSize: 14, fontWeight: 700, cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", gap: 10 }}>
+                  <span style={{ fontSize: 18 }}>G</span>
+                  Continuar con Google
+                </button>
+              </div>
+            )}
+          </div>
+
           {/* Streak */}
           {streakCount > 0 && (
             <div style={{ background: C.amberBg, border: `1px solid ${C.amberB}`, borderRadius: 12, padding: "14px 16px", marginBottom: 16, display: "flex", alignItems: "center", gap: 12 }}>

@@ -17,12 +17,22 @@ import { SearchTab } from "./components/SearchTab";
 import { ProfileTab } from "./components/ProfileTab";
 import { Onboarding } from "./components/Onboarding";
 import { WorshipTab } from "./components/WorshipTab";
+import { useAuth } from "./hooks/useAuth";
+import { syncOnLogin } from "./lib/dbSync";
 
 type Tab = "today" | "read" | "search" | "explore" | "worship" | "profile";
 type Reading = { bookId: string; chapter: number } | null;
 
 export default function Page() {
   const [tab, setTab] = useState<Tab>("today");
+  const { user } = useAuth();
+  const syncedRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!user || syncedRef.current === user.id) return;
+    syncedRef.current = user.id;
+    syncOnLogin(user.id).then(changed => { if (changed) window.location.reload(); });
+  }, [user]);
   const [progress, setProgress] = useLocalStorage<Progress>("bs_progress", { day: 0 });
   const [cover, setCover] = useLocalStorage<Cover>("bs_cover", COVERS[0]);
   const [onboarded, setOnboarded] = useLocalStorage<boolean>("bs_onboarded", false);
